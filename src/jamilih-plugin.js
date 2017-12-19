@@ -11,8 +11,14 @@ const plugin = {
                 language: options[0]
             };
         }
-        i18nizeElement(element, {
-            ...options
+        // We don't immediately internationalize
+        //   because Jamilih has not yet appended
+        //   the child element into the ancestors
+        //   it is being built with
+        Promise.resolve().then(() => {
+            i18nizeElement(element, {
+                ...options
+            });
         });
     }
 };

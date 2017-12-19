@@ -12,7 +12,7 @@ describe('i18nizeElement Plugin', function () {
         const options = {$plugins: [i18nizeElementForPlugin]};
         this.j = jml.bind(null, options);
     });
-    it('Basic creation of element, attributes, and setting of `lang`/`dir`', function () {
+    it('Basic creation of element, attributes, and setting of `lang`/`dir`', function (done) {
         const div = this.j('div', {
             id: 'myDiv',
             $_language: {
@@ -20,11 +20,6 @@ describe('i18nizeElement Plugin', function () {
                 avoidLTRByDefault: false
             }
         }, document.body);
-        expect(div.nodeName.toLowerCase()).equal('div');
-        expect(div.id).equal('myDiv');
-        expect(div.lang).equal('en-US');
-        expect(div.dir).equal('ltr');
-
         const div2 = this.j('div', {
             id: 'myDiv2',
             $_language: {
@@ -32,10 +27,19 @@ describe('i18nizeElement Plugin', function () {
                 avoidLTRByDefault: false
             }
         });
-        expect(div2.nodeName.toLowerCase()).equal('div');
-        expect(div2.id).equal('myDiv2');
-        expect(div2.lang).equal('fa');
-        expect(div2.dir).equal('rtl');
+
+        setTimeout(() => {
+            expect(div.nodeName.toLowerCase()).equal('div');
+            expect(div.id).equal('myDiv');
+            expect(div.lang).equal('en-US');
+            expect(div.dir).equal('ltr');
+
+            expect(div2.nodeName.toLowerCase()).equal('div');
+            expect(div2.id).equal('myDiv2');
+            expect(div2.lang).equal('fa');
+            expect(div2.dir).equal('rtl');
+            done();
+        });
     });
     describe('Options', function () {
         it('`avoidLTRByDefault` set to `false` will set `dir` on elements ' +
@@ -47,8 +51,10 @@ describe('i18nizeElement Plugin', function () {
                 }}, ['Text']]
             ], document.body);
             const span = div.querySelector('span');
-            expect(span.lang).equal('en-US');
-            expect(span.dir).equal('ltr');
+            setTimeout(() => {
+                expect(span.lang).equal('en-US');
+                expect(span.dir).equal('ltr');
+            });
         });
         it('`avoidLTRByDefault` set to `true` will not set `dir` on elements ' +
             'without `dir` ancestors', function () {
@@ -59,8 +65,10 @@ describe('i18nizeElement Plugin', function () {
                 }}, ['Text']]
             ], document.body);
             const span = div.querySelector('span');
-            expect(span.lang).equal('en-US');
-            expect(span.dir).equal('');
+            setTimeout(() => {
+                expect(span.lang).equal('en-US');
+                expect(span.dir).equal('');
+            });
         });
         it('`avoidLangIfSet` set to `false` will set `lang` on elements ' +
             'with the closest `lang` ancestor having the same language', function () {
@@ -71,7 +79,9 @@ describe('i18nizeElement Plugin', function () {
                 }}, ['Text']]
             ], document.body);
             const span = div.querySelector('span');
-            expect(span.lang).equal('en-US');
+            setTimeout(() => {
+                expect(span.lang).equal('en-US');
+            });
         });
         it('`avoidLangIfSet` set to `true` will not set `lang` on elements ' +
             'with the closest `lang` ancestor having the same language', function () {
@@ -82,7 +92,9 @@ describe('i18nizeElement Plugin', function () {
                 }}, ['Text']]
             ], document.body);
             const span = div.querySelector('span');
-            expect(span.lang).equal('');
+            setTimeout(() => {
+                expect(span.lang).equal('');
+            });
         });
         it('`avoidDirIfSet` set to `false` will set `dir` on elements ' +
             'with the closest `dir` ancestor having the same direction', function () {
@@ -93,7 +105,9 @@ describe('i18nizeElement Plugin', function () {
                 }}, ['Text']]
             ], document.body);
             const span = div.querySelector('span');
-            expect(span.dir).equal('rtl');
+            setTimeout(() => {
+                expect(span.dir).equal('rtl');
+            });
         });
         it('`avoidDirIfSet` set to `true` will not set `dir` on elements ' +
             'with the closest `dir` ancestor having the same direction', function () {
@@ -104,7 +118,9 @@ describe('i18nizeElement Plugin', function () {
                 }}, ['Text']]
             ], document.body);
             const span = div.querySelector('span');
-            expect(span.dir).equal('');
+            setTimeout(() => {
+                expect(span.dir).equal('');
+            });
         });
     });
 });

@@ -34,6 +34,13 @@ j('div', {id: 'myDiv', $_language: {
 }}, document.body);
 ```
 
+Please note that this plugin suffers from one limitation: The
+`$_language` settings will only be visible on the element (e.g.,
+`lang` and `dir`) after a Promise microtask. This is because
+Jamilih at present processes attributes and properties on
+elements before appending them to their parent, and `i18nizeElement`
+defines settings conditional on the element's ancestors.
+
 ## License
 
 -   MIT
