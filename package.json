@@ -1,21 +1,18 @@
 {
-  "name": "rollup-buble-mocha-boilerplate",
-  "version": "1.0.1",
-  "author": "Alexander Milevski <info@w8r.name>",
+  "name": "i18nizeelement",
+  "version": "0.0.1",
+  "author": "Brett Zamir",
+  "contributors": [],
   "license": "MIT",
-  "description": "Rollup + Buble + Mocha",
-  "main": "dist/lib.umd.js",
-  "module": "dist/lib.es6.js",
+  "description": "Internationalize an element with `lang`, `dir`, and `style.writingMode` as specified",
+  "main": "dist/i18nizeelement.umd.js",
+  "module": "dist/i18nizeelement.es6.js",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/w8r/rollup-buble-mocha-boilerplate"
+      "type": "git",
+      "url": "https://github.com/brettz9/i18nizeElement"
   },
-  "bugs": "https://github.com/w8r/rollup-buble-mocha-boilerplate/issues",
-  "keywords": [
-    "rollup",
-    "buble",
-    "mocha"
-  ],
+  "bugs": "https://github.com/brettz9/i18nizeElement/issues",
+  "keywords": [],
   "scripts": {
     "prebuild": "eslint src tests/",
     "build": "rollup -c rollup.config.umd.js && rollup -c rollup.config.es6.js",
