@@ -1,6 +1,6 @@
 import config from './rollup.config';
 
 config.output.format = 'es';
-config.output.file = 'dist/lib.es6.js';
+config.output.file = 'dist/i18nizeelement.es6.js';
 
 export default config;

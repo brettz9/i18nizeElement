@@ -1,9 +1,11 @@
 import buble from 'rollup-plugin-buble';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
 import multiEntry from 'rollup-plugin-multi-entry';
 
 export default {
     input: 'tests/**/*.test.js',
-    plugins: [buble(), multiEntry()],
+    plugins: [buble(), resolve(), commonjs(), multiEntry()],
     output: {
         format: 'umd',
         file: 'build/tests-bundle.js',
