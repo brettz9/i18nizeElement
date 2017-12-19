@@ -5,7 +5,9 @@ import multiEntry from 'rollup-plugin-multi-entry';
 
 export default {
     input: 'tests/**/*.test.js',
-    plugins: [buble(), resolve(), commonjs(), multiEntry()],
+    plugins: [buble({
+        objectAssign: 'Object.assign'
+    }), resolve(), commonjs(), multiEntry()],
     output: {
         format: 'umd',
         file: 'build/tests-bundle.js',

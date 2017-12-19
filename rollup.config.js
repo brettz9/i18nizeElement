@@ -5,6 +5,8 @@ import commonjs from 'rollup-plugin-commonjs';
 
 export default {
     input: 'src/index.js',
-    plugins: [resolve(), commonjs(), buble()],
+    plugins: [resolve(), commonjs(), buble({
+        objectAssign: 'Object.assign'
+    })],
     output: {sourcemap: true}
 };

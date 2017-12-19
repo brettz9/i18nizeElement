@@ -2,7 +2,7 @@ import i18nizeElement from './index.js';
 
 const plugin = {
     name: '$_language',
-    set (element, {attribute: {value: options}}) {
+    set ({element, attribute: {value: options}}) {
         if (typeof options === 'string') {
             options = {language: options};
         } else if (Array.isArray(options)) {

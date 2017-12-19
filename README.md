@@ -20,7 +20,8 @@ i18nizeElement(document.querySelector('html'), {
 ## Usage (as a [jamilih](https://github.com/brettz9/jamilih) plugin)
 
 ```js
-import i18nizeElement from 'i18nizeelement/dist/jamilih-plugin.js';
+import jml from 'jamilih';
+import i18nizeElement from 'i18nizeelement/dist/jamilih-plugin';
 const options = {$plugins: [i18nizeElement]};
 const j = jml.bind(null, options);
 
