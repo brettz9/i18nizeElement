@@ -3,6 +3,12 @@
 Internationalize an element with `lang`, `dir`, and `style.writingMode` as indicated
 by the supplied language and settings.
 
+## Installation
+
+```bash
+npm install i18nizeelement
+```
+
 ## Usage
 
 ```js
