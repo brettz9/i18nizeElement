@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 
-import i18nizeElementForPlugin from '../src/jamilih-plugin';
+import i18nizeElementForPlugin from '../src/i18nizeelement-jamilih-plugin';
 import jml from 'jamilih';
 
 if (typeof global !== 'undefined') {

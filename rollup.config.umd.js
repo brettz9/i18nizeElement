@@ -1,7 +1,12 @@
 import config from './rollup.config';
+const [configIndex, configPlugin] = config;
 
-config.output.format = 'umd';
-config.output.file = 'dist/i18nizeelement.umd.js';
-config.output.name = 'i18nizeElement';
+configIndex.output.format = 'umd';
+configIndex.output.file = 'dist/i18nizeelement.umd.js';
+configIndex.output.name = 'i18nizeElement';
 
-export default config;
+configPlugin.output.format = 'umd';
+configPlugin.output.file = 'dist/i18nizeelement-jamilih-plugin.umd.js';
+configPlugin.output.name = 'i18nizeElementJamilihPlugin';
+
+export default [configIndex, configPlugin];
