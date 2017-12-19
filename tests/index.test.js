@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import i18nizeElement from '../src/index';
 
 if (typeof global !== 'undefined') {
-    require('../tests/setGlobals.js');
+    require('../tests/node-environment.js');
 }
 
 describe('i18nizeElement (main)', () => {

@@ -4,7 +4,7 @@ import i18nizeElementForPlugin from '../src/jamilih-plugin';
 import jml from 'jamilih';
 
 if (typeof global !== 'undefined') {
-    require('../tests/setGlobals.js');
+    require('../tests/node-environment.js');
 }
 
 describe('i18nizeElement Plugin', function () {
