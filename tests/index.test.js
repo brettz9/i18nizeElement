@@ -81,6 +81,18 @@ describe('i18nizeElement (main)', () => {
             });
             expect(span.lang).equal('');
         });
+        it('`avoidLangIfSet` set to `true` should not stop setting of proper `lang` ' +
+            'if closest ancestor with `lang` has a different language', () => {
+            const div = document.createElement('div');
+            div.lang = 'en-US';
+            const span = document.createElement('span');
+            div.appendChild(span);
+            i18nizeElement(span, {
+                language: 'ar',
+                avoidLangIfSet: true
+            });
+            expect(span.lang).equal('ar');
+        });
         it('`avoidLangIfSet` set to `false` should not stop setting of ' +
             '`lang` even if set on an ancestor', () => {
             const div = document.createElement('div');
@@ -127,6 +139,18 @@ describe('i18nizeElement (main)', () => {
                 avoidDirIfSet: true
             });
             expect(span.dir).equal('');
+        });
+        it('`avoidDirIfSet` set to `true` should not stop setting of proper `dir` ' +
+            'if closest ancestor with `dir` has a different direction', () => {
+            const div = document.createElement('div');
+            div.dir = 'ltr';
+            const span = document.createElement('span');
+            div.appendChild(span);
+            i18nizeElement(span, {
+                language: 'ar',
+                avoidDirIfSet: true
+            });
+            expect(span.dir).equal('rtl');
         });
         it('`avoidDirIfSet` set to `true` should not interfere with setting ' +
             '`dir` if not set on an ancestor', () => {
