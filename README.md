@@ -27,7 +27,8 @@ i18nizeElement(document.querySelector('html'), {
 
 ```js
 import jml from 'jamilih';
-import i18nizeElement from 'i18nizeelement/dist/i18nizeelement-jamilih-plugin.js';
+import i18nizeElement from
+  'i18nizeelement/dist/i18nizeelement-jamilih-plugin.js';
 
 const options = {$plugins: [i18nizeElement]};
 const j = jml.bind(null, options);

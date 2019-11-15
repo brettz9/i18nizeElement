@@ -41,13 +41,16 @@ describe('i18nizeElement (main)', () => {
   describe('Top to bottom', () => {
     /*
         // Todo: Waiting on: https://github.com/shadiabuhilal/rtl-detect/issues/2
-        it('should set `style.writingMode` for top-to-bottom languages/scripts', () => {
-            const div = document.createElement('div');
-            i18nizeElement(div, {
-                language: 'mn-Mong'
-            });
-            expect(div.style.writingMode).equal('vertical-lr');
-        });
+        it(
+          'should set `style.writingMode` for top-to-bottom languages/scripts',
+          () => {
+              const div = document.createElement('div');
+              i18nizeElement(div, {
+                  language: 'mn-Mong'
+              });
+              expect(div.style.writingMode).equal('vertical-lr');
+          }
+        );
         */
     it('should not set `style.writingMode` for rtl languages/scripts', () => {
       const div = document.createElement('div');
@@ -77,20 +80,23 @@ describe('i18nizeElement (main)', () => {
       });
       expect(span.lang).equal('');
     });
-    it('`avoidLangIfSet` set to `true` should not stop setting of proper `lang` ' +
-            'if closest ancestor with `lang` has a different language', () => {
-      const div = document.createElement('div');
-      div.lang = 'en-US';
-      const span = document.createElement('span');
-      div.append(span);
-      i18nizeElement(span, {
-        language: 'ar',
-        avoidLangIfSet: true
-      });
-      expect(span.lang).equal('ar');
-    });
+    it(
+      '`avoidLangIfSet` set to `true` should not stop setting of proper ' +
+      '`lang` if closest ancestor with `lang` has a different language',
+      () => {
+        const div = document.createElement('div');
+        div.lang = 'en-US';
+        const span = document.createElement('span');
+        div.append(span);
+        i18nizeElement(span, {
+          language: 'ar',
+          avoidLangIfSet: true
+        });
+        expect(span.lang).equal('ar');
+      }
+    );
     it('`avoidLangIfSet` set to `false` should not stop setting of ' +
-            '`lang` even if set on an ancestor', () => {
+      '`lang` even if set on an ancestor', () => {
       const div = document.createElement('div');
       div.lang = 'en-US';
       const span = document.createElement('span');
@@ -136,18 +142,21 @@ describe('i18nizeElement (main)', () => {
       });
       expect(span.dir).equal('');
     });
-    it('`avoidDirIfSet` set to `true` should not stop setting of proper `dir` ' +
-            'if closest ancestor with `dir` has a different direction', () => {
-      const div = document.createElement('div');
-      div.dir = 'ltr';
-      const span = document.createElement('span');
-      div.append(span);
-      i18nizeElement(span, {
-        language: 'ar',
-        avoidDirIfSet: true
-      });
-      expect(span.dir).equal('rtl');
-    });
+    it(
+      '`avoidDirIfSet` set to `true` should not stop setting of proper `dir` ' +
+      'if closest ancestor with `dir` has a different direction',
+      () => {
+        const div = document.createElement('div');
+        div.dir = 'ltr';
+        const span = document.createElement('span');
+        div.append(span);
+        i18nizeElement(span, {
+          language: 'ar',
+          avoidDirIfSet: true
+        });
+        expect(span.dir).equal('rtl');
+      }
+    );
     it('`avoidDirIfSet` set to `true` should not interfere with setting ' +
             '`dir` if not set on an ancestor', () => {
       const div = document.createElement('div');
@@ -173,8 +182,8 @@ describe('i18nizeElement (main)', () => {
     });
 
     it('`avoidLTRByDefault` set to `true` should avoid setting `dir` ' +
-            'to "ltr" if there is no ancestor with `dir` ("ltr" is a document ' +
-            'default)', () => {
+        'to "ltr" if there is no ancestor with `dir` ("ltr" is a document ' +
+        'default)', () => {
       const div = document.createElement('div');
       const span = document.createElement('span');
       div.append(span);
@@ -184,96 +193,112 @@ describe('i18nizeElement (main)', () => {
       });
       expect(span.dir).equal('');
     });
-    it('`avoidLTRByDefault` set to `true` should avoid interfering with ' +
-            'the setting of `dir` to "ltr" if there is an ancestor with `dir`', () => {
-      const div = document.createElement('div');
-      div.dir = 'rtl';
-      const span = document.createElement('span');
-      div.append(span);
-      i18nizeElement(span, {
-        language: 'en-US',
-        avoidLTRByDefault: true
-      });
-      expect(span.dir).equal('ltr');
+    it(
+      '`avoidLTRByDefault` set to `true` should avoid interfering with ' +
+      'the setting of `dir` to "ltr" if there is an ancestor with `dir`',
+      () => {
+        const div = document.createElement('div');
+        div.dir = 'rtl';
+        const span = document.createElement('span');
+        div.append(span);
+        i18nizeElement(span, {
+          language: 'en-US',
+          avoidLTRByDefault: true
+        });
+        expect(span.dir).equal('ltr');
 
-      const div3 = document.createElement('div');
-      div3.dir = 'ltr';
-      const span3 = document.createElement('span');
-      div3.append(span3);
-      i18nizeElement(span3, {
-        language: 'en-US',
-        avoidLTRByDefault: true,
-        avoidDirIfSet: false // Don't avoid because already set on ancestor
-      });
-      expect(span3.dir).equal('ltr');
-    });
-    it('`avoidLTRByDefault` set to `true` should avoid interfering with ' +
-            'the setting of `dir` to "rtl" even if there is no ancestor with `dir`', () => {
-      const div = document.createElement('div');
-      const span = document.createElement('span');
-      div.append(span);
-      i18nizeElement(span, {
-        language: 'ar',
-        avoidLTRByDefault: true
-      });
-      expect(span.dir).equal('rtl');
-    });
-    it('`avoidLTRByDefault` set to `true` should avoid interfering with ' +
-            'the setting of `dir` to "rtl" if there is an ancestor with `dir`', () => {
-      const div = document.createElement('div');
-      div.dir = 'ltr';
-      const span = document.createElement('span');
-      div.append(span);
-      i18nizeElement(span, {
-        language: 'ar',
-        avoidLTRByDefault: true
-      });
-      expect(span.dir).equal('rtl');
+        const div3 = document.createElement('div');
+        div3.dir = 'ltr';
+        const span3 = document.createElement('span');
+        div3.append(span3);
+        i18nizeElement(span3, {
+          language: 'en-US',
+          avoidLTRByDefault: true,
+          avoidDirIfSet: false // Don't avoid because already set on ancestor
+        });
+        expect(span3.dir).equal('ltr');
+      }
+    );
+    it(
+      '`avoidLTRByDefault` set to `true` should avoid interfering with ' +
+      'the setting of `dir` to "rtl" even if there is no ancestor with `dir`',
+      () => {
+        const div = document.createElement('div');
+        const span = document.createElement('span');
+        div.append(span);
+        i18nizeElement(span, {
+          language: 'ar',
+          avoidLTRByDefault: true
+        });
+        expect(span.dir).equal('rtl');
+      }
+    );
+    it(
+      '`avoidLTRByDefault` set to `true` should avoid interfering with ' +
+      'the setting of `dir` to "rtl" if there is an ancestor with `dir`',
+      () => {
+        const div = document.createElement('div');
+        div.dir = 'ltr';
+        const span = document.createElement('span');
+        div.append(span);
+        i18nizeElement(span, {
+          language: 'ar',
+          avoidLTRByDefault: true
+        });
+        expect(span.dir).equal('rtl');
 
-      const div2 = document.createElement('div');
-      div2.dir = 'rtl';
-      const span2 = document.createElement('span');
-      div2.append(span2);
-      i18nizeElement(span2, {
-        language: 'ar',
-        avoidLTRByDefault: true,
-        avoidDirIfSet: false // Also don't avoid because already set on ancestor
-      });
-      expect(span2.dir).equal('rtl');
-    });
-    it('`avoidLTRByDefault` set to `false` should avoid interfering with ' +
-            'the setting of `dir` to "rtl" even if there is no ancestor with `dir`', () => {
-      const div2 = document.createElement('div');
-      const span2 = document.createElement('span');
-      div2.append(span2);
-      i18nizeElement(span2, {
-        language: 'ar',
-        avoidLTRByDefault: false
-      });
-      expect(span2.dir).equal('rtl');
-    });
-    it('`avoidLTRByDefault` set to `false` should avoid interfering with ' +
-            'the setting of `dir` to "rtl" if there is an ancestor with `dir`', () => {
-      const div = document.createElement('div');
-      div.dir = 'rtl';
-      const span = document.createElement('span');
-      div.append(span);
-      i18nizeElement(span, {
-        language: 'ar',
-        avoidLTRByDefault: false,
-        avoidDirIfSet: false // Also don't avoid because already on ancestor
-      });
-      expect(span.dir).equal('rtl');
+        const div2 = document.createElement('div');
+        div2.dir = 'rtl';
+        const span2 = document.createElement('span');
+        div2.append(span2);
+        i18nizeElement(span2, {
+          language: 'ar',
+          avoidLTRByDefault: true,
+          // Also don't avoid because already set on ancestor
+          avoidDirIfSet: false
+        });
+        expect(span2.dir).equal('rtl');
+      }
+    );
+    it(
+      '`avoidLTRByDefault` set to `false` should avoid interfering with ' +
+      'the setting of `dir` to "rtl" even if there is no ancestor with `dir`',
+      () => {
+        const div2 = document.createElement('div');
+        const span2 = document.createElement('span');
+        div2.append(span2);
+        i18nizeElement(span2, {
+          language: 'ar',
+          avoidLTRByDefault: false
+        });
+        expect(span2.dir).equal('rtl');
+      }
+    );
+    it(
+      '`avoidLTRByDefault` set to `false` should avoid interfering with ' +
+      'the setting of `dir` to "rtl" if there is an ancestor with `dir`',
+      () => {
+        const div = document.createElement('div');
+        div.dir = 'rtl';
+        const span = document.createElement('span');
+        div.append(span);
+        i18nizeElement(span, {
+          language: 'ar',
+          avoidLTRByDefault: false,
+          avoidDirIfSet: false // Also don't avoid because already on ancestor
+        });
+        expect(span.dir).equal('rtl');
 
-      const div2 = document.createElement('div');
-      div2.dir = 'ltr';
-      const span2 = document.createElement('span');
-      div2.append(span2);
-      i18nizeElement(span2, {
-        language: 'ar',
-        avoidLTRByDefault: false
-      });
-      expect(span2.dir).equal('rtl');
-    });
+        const div2 = document.createElement('div');
+        div2.dir = 'ltr';
+        const span2 = document.createElement('span');
+        div2.append(span2);
+        i18nizeElement(span2, {
+          language: 'ar',
+          avoidLTRByDefault: false
+        });
+        expect(span2.dir).equal('rtl');
+      }
+    );
   });
 });

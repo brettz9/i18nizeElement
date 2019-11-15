@@ -31,7 +31,5 @@ module.exports = {
     }
   ],
   "rules": {
-    // Disable for now:
-    'max-len': 0
   }
 };

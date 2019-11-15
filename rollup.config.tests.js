@@ -15,7 +15,8 @@ export default {
     format: 'umd',
     file: 'build/tests-bundle.js',
     name: 'tests',
-    intro: 'if (typeof module !== "undefined") require("source-map-support").install();',
+    intro: 'if (typeof module !== "undefined") ' +
+      'require("source-map-support").install();',
     sourcemap: true
   },
   external: ['mocha', 'chai']
