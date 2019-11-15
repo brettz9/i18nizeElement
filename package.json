@@ -1,6 +1,6 @@
 {
   "name": "i18nizeelement",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "author": "Brett Zamir",
   "contributors": [],
   "license": "MIT",
@@ -66,7 +66,6 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-multi-entry": "^2.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-watch": "^4.3.1",
     "rtl-detect": "^1.0.2",
     "source-map-support": "^0.5.16",
     "typescript": "^3.7.2"

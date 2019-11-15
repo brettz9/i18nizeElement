@@ -11,6 +11,7 @@
 - Maintenance: Add `.editorconfig`
 - Docs: Add badges
 - npm: Update devDeps; avoid `build` script; `opn-cli`->`open-cli`
+- npm: Remove `rollup-watch`
 
 ## 0.2.1
 
