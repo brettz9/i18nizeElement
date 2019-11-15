@@ -1,3 +1,16 @@
+[![npm](http://img.shields.io/npm/v/i18nizeelement.svg)](https://www.npmjs.com/package/i18nizeelement)
+[![Dependencies](https://img.shields.io/david/brettz9/i18nizeElement.svg)](https://david-dm.org/brettz9/i18nizeElement)
+[![devDependencies](https://img.shields.io/david/dev/brettz9/i18nizeElement.svg)](https://david-dm.org/brettz9/i18nizeElement?type=dev)
+
+[![Actions Status](https://github.com/brettz9/i18nizeElement/workflows/Node%20CI/badge.svg)](https://github.com/brettz9/i18nizeElement/actions)
+[![Actions Status](https://github.com/brettz9/i18nizeElement/workflows/Coverage/badge.svg)](https://github.com/brettz9/i18nizeElement/actions)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/brettz9/i18nizeElement/badge.svg)](https://snyk.io/test/github/brettz9/i18nizeElement)
+[![Total Alerts](https://img.shields.io/lgtm/alerts/g/brettz9/i18nizeElement.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/brettz9/i18nizeElement/alerts)
+[![Code Quality: Javascript](https://img.shields.io/lgtm/grade/javascript/g/brettz9/i18nizeElement.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/brettz9/i18nizeElement/context:javascript)
+
+[![License](https://img.shields.io/npm/l/i18nizeelement.svg)](LICENSE-MIT.txt)
+
 # i18nizeElement
 
 Internationalize an element with `lang`, `dir`, and `style.writingMode` as indicated
