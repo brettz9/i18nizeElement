@@ -63,6 +63,10 @@ elements before appending them to their parent, and `i18nizeElement`
 defines settings which depend on the element's intended ancestors
 being present.
 
+## See also
+
+- [intl-dom](https://github.com/brettz9/intl-dom)
+
 ## License
 
 -   MIT
