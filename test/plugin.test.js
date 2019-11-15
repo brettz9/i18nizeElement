@@ -1,7 +1,6 @@
-import {expect} from 'chai';
-
-import jml from 'jamilih';
-import i18nizeElementForPlugin from '../src/i18nizeelement-jamilih-plugin.js';
+/* globals jml */
+import i18nizeElementForPlugin from
+  '../dist/i18nizeelement-jamilih-plugin.es6.js';
 
 describe('i18nizeElement Plugin', function () {
   beforeEach(function () {

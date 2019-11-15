@@ -1,5 +1,6 @@
-'use strict';
-const jsdom = require('jsdom');
+import jsdom from 'jsdom';
+import {expect} from 'chai';
+import jml from 'jamilih';
 
 const {JSDOM} = jsdom;
 const {window: win} = new JSDOM();
@@ -17,3 +18,5 @@ global.window.Element.prototype.closest = function (selector) {
   }
   return null;
 };
+global.expect = expect;
+global.jml = jml;

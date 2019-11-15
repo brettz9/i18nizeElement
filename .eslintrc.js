@@ -1,11 +1,10 @@
 module.exports = {
-  "extends": "ash-nazg/sauron",
-  "parserOptions": {
-      "sourceType": "module"
+  extends: ["ash-nazg/sauron"],
+  parserOptions: {
+    sourceType: "module"
   },
-  "env": {
-    "node": true,
-    "mocha": true
+  env: {
+    node: true,
   },
   settings: {
     polyfills: [
@@ -26,10 +25,16 @@ module.exports = {
       }
     },
     {
-      extends: ['plugin:node/recommended-script'],
-      files: ['test/node-environment.js']
+      files: ['test/**'],
+      env: {
+        mocha: true
+      },
+      globals: {
+        expect: true,
+        chai: true
+      }
     }
   ],
-  "rules": {
+  rules: {
   }
 };

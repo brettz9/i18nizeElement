@@ -1,6 +1,4 @@
-import {expect} from 'chai';
-
-import i18nizeElement from '../src/index.js';
+import i18nizeElement from '../dist/i18nizeelement.es6.js';
 
 describe('i18nizeElement (main)', () => {
   it('should set `lang` and `dir` for LTR languages', () => {
