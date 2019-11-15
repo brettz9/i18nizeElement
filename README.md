@@ -39,7 +39,7 @@ i18nizeElement(document.querySelector('html'), {
 ## Usage (as a [jamilih](https://github.com/brettz9/jamilih) plugin)
 
 ```js
-import jml from 'jamilih';
+import {jml, body} from 'jamilih';
 import i18nizeElement from
   'i18nizeelement/dist/i18nizeelement-jamilih-plugin.js';
 
@@ -52,7 +52,15 @@ j('div', {id: 'myDiv', $_language: {
   avoidLangIfSet: true,
   avoidDirIfSet: true,
   avoidLTRByDefault: true
-}}, document.body);
+}}, body);
+
+// An alternative API is:
+j('div', {id: 'myDiv', $_language: [
+  'en-US' /* , optionalOptionsObjectHere */
+]});
+
+// If options are not needed you can use this format:
+j('div', {id: 'myDiv', $_language: 'en-US'}, body);
 ```
 
 Please note that this plugin suffers from one limitation: The
