@@ -11,14 +11,17 @@
     <div id="mocha"></div>
 
     <script src="../node_modules/source-map-support/browser-source-map-support.js"></script>
-    <script>sourceMapSupport.install();</script>
+    <script>
+    /* globals sourceMapSupport */
+    sourceMapSupport.install();
+    </script>
 
     <!-- Test Environment -->
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
 
     <script>
-        mocha.setup({ui: 'bdd', timeout: 5000});
+    mocha.setup({ui: 'bdd', timeout: 5000});
     </script>
 
     <!-- Unit Tests -->

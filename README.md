@@ -15,11 +15,11 @@ npm install i18nizeelement
 import i18nizeElement from 'i18nizeelement';
 
 i18nizeElement(document.querySelector('html'), {
-    language: 'en-US',
-    // Optional (Defaults shown below)
-    avoidLangIfSet: true,
-    avoidDirIfSet: true,
-    avoidLTRByDefault: true
+  language: 'en-US',
+  // Optional (Defaults shown below)
+  avoidLangIfSet: true,
+  avoidDirIfSet: true,
+  avoidLTRByDefault: true
 });
 ```
 
@@ -27,16 +27,17 @@ i18nizeElement(document.querySelector('html'), {
 
 ```js
 import jml from 'jamilih';
-import i18nizeElement from 'i18nizeelement/dist/i18nizeelement-jamilih-plugin';
+import i18nizeElement from 'i18nizeelement/dist/i18nizeelement-jamilih-plugin.js';
+
 const options = {$plugins: [i18nizeElement]};
 const j = jml.bind(null, options);
 
 j('div', {id: 'myDiv', $_language: {
-    language: 'en-US',
-    // Optional (Defaults shown below)
-    avoidLangIfSet: true,
-    avoidDirIfSet: true,
-    avoidLTRByDefault: true
+  language: 'en-US',
+  // Optional (Defaults shown below)
+  avoidLangIfSet: true,
+  avoidDirIfSet: true,
+  avoidLTRByDefault: true
 }}, document.body);
 ```
 
