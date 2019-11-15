@@ -1,3 +1,5 @@
 test
 /*.*
 !LICENSE-MIT.txt
+.nyc_output
+coverage

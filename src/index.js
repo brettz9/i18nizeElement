@@ -62,6 +62,8 @@ const i18nizeElement = (element, {
       )
   ) {
     element.dir = dir;
+
+    /* istanbul ignore next */
     if (dir === 'ttb') { // Assumes https://github.com/shadiabuhilal/rtl-detect/issues/2
       element.style.writingMode = 'vertical-lr';
     }

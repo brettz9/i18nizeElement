@@ -1,6 +1,12 @@
 import i18nizeElement from '../dist/i18nizeelement.es6.js';
 
 describe('i18nizeElement (main)', () => {
+  it('should throw', () => {
+    expect(() => {
+      const div = document.createElement('div');
+      i18nizeElement(div);
+    }).to.throw(TypeError, 'You must supply an element and language');
+  });
   it('should set `lang` and `dir` for LTR languages', () => {
     const div = document.createElement('div');
     i18nizeElement(div, {

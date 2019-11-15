@@ -24,6 +24,16 @@ describe('i18nizeElement Plugin', function () {
           avoidLTRByDefault: false
         }
       });
+      const div3 = this.j('div', {
+        id: 'myDiv3',
+        $_language: 'en-US'
+      }, document.body);
+      const div4 = this.j('div', {
+        id: 'myDiv4',
+        $_language: ['fa', {
+          avoidLTRByDefault: false
+        }]
+      }, document.body);
 
       setTimeout(() => {
         expect(div.nodeName.toLowerCase()).equal('div');
@@ -35,6 +45,15 @@ describe('i18nizeElement Plugin', function () {
         expect(div2.id).equal('myDiv2');
         expect(div2.lang).equal('fa');
         expect(div2.dir).equal('rtl');
+
+        expect(div3.nodeName.toLowerCase()).equal('div');
+        expect(div3.id).equal('myDiv3');
+        expect(div3.lang).equal('en-US');
+
+        expect(div4.nodeName.toLowerCase()).equal('div');
+        expect(div4.id).equal('myDiv4');
+        expect(div4.lang).equal('fa');
+        expect(div4.dir).equal('rtl');
         done();
       });
     }
@@ -55,7 +74,7 @@ describe('i18nizeElement Plugin', function () {
       });
     });
     it('`avoidLTRByDefault` set to `true` will not set `dir` on elements ' +
-            'without `dir` ancestors', function () {
+      'without `dir` ancestors', function () {
       const div = this.j('div', [
         ['span', {$_language: {
           language: 'en-US',
