@@ -4,6 +4,7 @@
 
 - Docs: Update Jamilih API; document additional Jamilih plugin APIs
 - npm: Switch to non-deprecated `@rollup/plugin-node-resolve`
+- npm: Update devDeps
 
 ## 0.3.0
 
