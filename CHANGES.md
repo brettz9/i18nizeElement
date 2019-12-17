@@ -1,5 +1,10 @@
 # CHANGES for i18nizeelement
 
+## ?
+
+- Docs: Update Jamilih API; document additional Jamilih plugin APIs
+- npm: Switch to non-deprecated `@rollup/plugin-node-resolve`
+
 ## 0.3.0
 
 - Breaking change: Insist on Node >= 6
