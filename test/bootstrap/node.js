@@ -1,5 +1,5 @@
 import jsdom from 'jsdom';
-import {expect} from 'chai';
+import {expect as chaiExpect} from 'chai';
 import jml from 'jamilih';
 
 const {JSDOM} = jsdom;
@@ -18,5 +18,5 @@ global.window.Element.prototype.closest = function (selector) {
   }
   return null;
 };
-global.expect = expect;
+global.expect = chaiExpect;
 global.jml = jml;

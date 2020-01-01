@@ -3,6 +3,7 @@
 ## ?
 
 - Docs: Update Jamilih API; document additional Jamilih plugin APIs
+- Linting (ESLint): As per latest ash-nazg
 - npm: Switch to non-deprecated `@rollup/plugin-node-resolve`
 - npm: Update devDeps
 
