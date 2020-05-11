@@ -1,4 +1,4 @@
-import i18nizeElement from '../dist/i18nizeelement.es6.js';
+import i18nizeElement from '../src/index.js';
 
 describe('i18nizeElement (main)', () => {
   it('should throw', () => {
