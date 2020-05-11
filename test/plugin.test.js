@@ -1,6 +1,6 @@
 /* globals jml */
 import i18nizeElementForPlugin from
-  '../dist/i18nizeelement-jamilih-plugin.es6.js';
+  '../src/i18nizeelement-jamilih-plugin.js';
 
 describe('i18nizeElement Plugin', function () {
   beforeEach(function () {
