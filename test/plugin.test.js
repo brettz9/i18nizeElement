@@ -1,6 +1,6 @@
-/* globals jml */
+import {jml} from '../node_modules/jamilih/dist/jml-es.js';
 import i18nizeElementForPlugin from
-  '../src/i18nizeelement-jamilih-plugin.js';
+  '../dist/i18nizeelement-jamilih-plugin.es6.js';
 
 describe('i18nizeElement Plugin', function () {
   beforeEach(function () {

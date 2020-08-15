@@ -12,7 +12,7 @@
 
     <script src="../node_modules/source-map-support/browser-source-map-support.js"></script>
     <script>
-    /* globals sourceMapSupport */
+    /* globals sourceMapSupport -- Source maps */
     sourceMapSupport.install();
     </script>
 
@@ -21,11 +21,8 @@
     <script src="../node_modules/chai/chai.js"></script>
 
     <script type="module">
-    import {jml} from '../node_modules/jamilih/dist/jml-es.js';
-
     window.expect = chai.expect;
     mocha.setup({ui: 'bdd', timeout: 5000});
-    window.jml = jml;
     </script>
 
     <!-- Unit Tests -->

@@ -1,16 +1,21 @@
 # CHANGES for i18nizeelement
 
-## ?
+## 0.4.0
 
 - Docs: Update Jamilih API; document additional Jamilih plugin APIs
 - Linting (ESLint): As per latest ash-nazg
-- Testing: Use chai/register-expect
+- Testing: Use `chai/register-expect`
+- Testing: Fix paths to allow avoiding a global; drop now unneeded `closest`
+    polyfill
 - npm: Add eslint to test script
 - npm: Script from `prepare` to `prepublishOnly`
 - npm: Update `rollup-plugin-babel` to `@rollup/plugin-babel`
     and make explicit `babelHelpers` value of `bundled`
 - npm: Switch to non-deprecated `@rollup/plugin-node-resolve`
-- npm: Update devDeps
+- npm: Switch to non-deprecated `@rollup/plugin-commonjs`
+- npm: Remove `test-cov` script in favor of letting `test` run coverage
+- npm: Delete full cache (ESM and nyc) in testing coverage
+- npm: Update devDeps. and package-lock
 
 ## 0.3.0
 

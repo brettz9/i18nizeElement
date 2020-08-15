@@ -8,5 +8,5 @@ configIndex.output.file = 'dist/i18nizeelement.es6.js';
 configPlugin.output.format = 'es';
 configPlugin.output.file = 'dist/i18nizeelement-jamilih-plugin.es6.js';
 
-// eslint-disable-next-line import/no-anonymous-default-export
+// eslint-disable-next-line import/no-anonymous-default-export -- Rollup config
 export default [configIndex, configPlugin];
