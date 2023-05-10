@@ -1,5 +1,12 @@
 # CHANGES for i18nizeelement
 
+## 0.5.0
+
+BREAKING CHANGE: Requires Node 16
+
+- refactor: switch to `intl-locale-textinfo-polyfill`; use ESM
+- chore: update devDeps.
+
 ## 0.4.0
 
 - Docs: Update Jamilih API; document additional Jamilih plugin APIs

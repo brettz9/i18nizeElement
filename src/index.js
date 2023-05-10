@@ -1,4 +1,5 @@
-import rtlDetect from 'rtl-detect';
+import 'intl-locale-textinfo-polyfill/lib/polyfill.js';
+
 // https://github.com/shadiabuhilal/rtl-detect/issues/3
 // e.g., `i18nizeElement(document.title, {language: 'ar-AR'});`
 const i18nizeElement = (element, {
@@ -37,7 +38,8 @@ const i18nizeElement = (element, {
   //        direction or the user isn't avoiding (the default) LTR)
   //    3. The closest ancestor with `dir` has a different `dir` from the
   //        direction of the supplied language
-  const dir = rtlDetect.getLangDir(language);
+  const {direction: dir} = new Intl.Locale(language).textInfo;
+
   let presetDirElement;
   if (avoidDirIfSet ||
     // If avoiding the default LTR except when different (even if not

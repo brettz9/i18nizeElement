@@ -5,8 +5,18 @@
   "contributors": [],
   "license": "MIT",
   "description": "Internationalize an element with `lang`, `dir`, and `style.writingMode` as indicated by the supplied language and settings",
+  "type": "module",
   "main": "dist/i18nizeelement.umd.js",
-  "module": "dist/i18nizeelement.es6.js",
+  "exports": {
+    ".": {
+      "import": "./dist/i18nizeelement.es6.js",
+      "require": "./dist/i18nizeelement.umd.js"
+    },
+    "./i18nizeelement-jamilih-plugin.js": {
+      "import": "./dist/i18nizeelement-jamilih-plugin.es6.js",
+      "require": "./dist/i18nizeelement-jamilih-plugin.umd.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/brettz9/i18nizeElement"
@@ -19,55 +29,54 @@
     "rtl"
   ],
   "scripts": {
+    "lint": "npm run eslint",
     "eslint": "eslint --ext=js,md,html .",
     "rollup": "rollup -c rollup.config.umd.js && rollup -c rollup.config.es6.js",
     "start": "npm run test:watch",
-    "mocha": "_mocha --require chai/register-expect --require esm --require test/bootstrap/node.js test/*.js --exit",
+    "mocha": "_mocha --require chai/register-expect.js --require test/bootstrap/node.js test/*.js --exit",
     "test:watch": "nodemon --watch src --watch test --exec 'npm test'",
-    "nyc": "echo 'Deleting esm cache for coverage' && rm -Rf node_modules/.cache && nyc npm run mocha",
-    "test": "npm run eslint && npm run rollup && npm run nyc",
+    "c8": "echo 'Deleting esm cache for coverage' && rm -Rf node_modules/.cache && c8 npm run mocha",
+    "test": "npm run eslint && npm run rollup && npm run c8",
     "browser-test": "npm run rollup && open-cli http://127.0.0.1:8080/test/ && static -p 8080",
     "prepublishOnly": "npm run rollup && npm test"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=16.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.1",
-    "@mysticatea/eslint-plugin": "^13.0.0",
-    "@rollup/plugin-babel": "^5.2.0",
-    "@rollup/plugin-commonjs": "^15.0.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "chai": "^4.2.0",
-    "eslint": "^7.7.0",
-    "eslint-config-ash-nazg": "^22.7.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-array-func": "^3.1.7",
-    "eslint-plugin-compat": "^3.8.0",
+    "@babel/core": "^7.21.8",
+    "@brettz9/eslint-plugin": "^1.0.4",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "c8": "^7.13.0",
+    "chai": "^4.3.7",
+    "eslint": "^8.40.0",
+    "eslint-config-ash-nazg": "^34.12.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-array-func": "^3.1.8",
+    "eslint-plugin-compat": "^4.1.4",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-html": "^6.0.3",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsdoc": "^30.2.2",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsdoc": "^44.1.0",
     "eslint-plugin-markdown": "^3.0.0",
-    "eslint-plugin-no-unsanitized": "^3.1.2",
+    "eslint-plugin-no-unsanitized": "^4.0.2",
     "eslint-plugin-no-use-extend-native": "^0.5.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-sonarjs": "^0.5.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-unicorn": "^21.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-sonarjs": "^0.19.0",
+    "eslint-plugin-standard": "^4.1.0",
+    "eslint-plugin-unicorn": "^47.0.0",
     "esm": "^3.2.25",
-    "jamilih": "^0.53.2",
-    "jsdom": "^16.4.0",
+    "intl-locale-textinfo-polyfill": "^1.0.1",
+    "jamilih": "^0.57.0",
+    "jsdom": "^22.0.0",
     "mocha": "^10.2.0",
     "node-static": "0.7.11",
-    "nodemon": "^2.0.4",
-    "nyc": "^15.1.0",
-    "open-cli": "^7.1.0",
-    "rollup": "^2.26.0",
-    "rtl-detect": "^1.0.2",
-    "source-map-support": "^0.5.19",
-    "typescript": "^3.9.7"
-  },
-  "dependencies": {}
+    "nodemon": "^2.0.22",
+    "open-cli": "^7.2.0",
+    "rollup": "^3.21.6",
+    "source-map-support": "^0.5.21",
+    "typescript": "^5.0.4"
+  }
 }
