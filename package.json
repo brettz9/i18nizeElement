@@ -1,6 +1,6 @@
 {
   "name": "i18nizeelement",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "Brett Zamir",
   "contributors": [],
   "license": "MIT",
@@ -9,10 +9,12 @@
   "main": "dist/i18nizeelement.umd.js",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/i18nizeelement.es6.js",
       "require": "./dist/i18nizeelement.umd.js"
     },
-    "./i18nizeelement-jamilih-plugin.js": {
+    "./jamilih-plugin.js": {
+      "types": "./dist/i18nizeelement-jamilih-plugin.d.ts",
       "import": "./dist/i18nizeelement-jamilih-plugin.es6.js",
       "require": "./dist/i18nizeelement-jamilih-plugin.umd.js"
     }
@@ -31,14 +33,16 @@
   "scripts": {
     "lint": "npm run eslint",
     "eslint": "eslint --ext=js,md,html .",
+    "tsc": "tsc",
+    "build": "npm run rollup && tsc -p tsconfig-prod.json",
     "rollup": "rollup -c rollup.config.umd.js && rollup -c rollup.config.es6.js",
     "start": "npm run test:watch",
     "mocha": "_mocha --require chai/register-expect.js --require test/bootstrap/node.js test/*.js --exit",
     "test:watch": "nodemon --watch src --watch test --exec 'npm test'",
     "c8": "echo 'Deleting esm cache for coverage' && rm -Rf node_modules/.cache && c8 npm run mocha",
-    "test": "npm run eslint && npm run rollup && npm run c8",
-    "browser-test": "npm run rollup && open-cli http://127.0.0.1:8080/test/ && static -p 8080",
-    "prepublishOnly": "npm run rollup && npm test"
+    "test": "npm run eslint && npm run build && npm run c8",
+    "browser-test": "npm run build && open-cli http://127.0.0.1:8080/test/ && static -p 8080",
+    "prepublishOnly": "npm run build && npm test"
   },
   "engines": {
     "node": ">=16.0.0"
@@ -48,6 +52,9 @@
     "@brettz9/eslint-plugin": "^1.0.4",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-node-resolve": "^15.0.2",
+    "@types/chai": "^4.3.5",
+    "@types/jsdom": "^21.1.1",
+    "@types/mocha": "^10.0.1",
     "c8": "^7.13.0",
     "chai": "^4.3.7",
     "eslint": "^8.40.0",
@@ -58,7 +65,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-html": "^7.1.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsdoc": "^44.1.0",
+    "eslint-plugin-jsdoc": "^44.2.1",
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-no-unsanitized": "^4.0.2",
     "eslint-plugin-no-use-extend-native": "^0.5.0",
@@ -69,7 +76,7 @@
     "eslint-plugin-unicorn": "^47.0.0",
     "esm": "^3.2.25",
     "intl-locale-textinfo-polyfill": "^1.0.1",
-    "jamilih": "^0.57.0",
+    "jamilih": "^0.57.1",
     "jsdom": "^22.0.0",
     "mocha": "^10.2.0",
     "node-static": "0.7.11",

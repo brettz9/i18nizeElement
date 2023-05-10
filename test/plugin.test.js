@@ -1,9 +1,12 @@
-import {jml} from '../node_modules/jamilih/dist/jml-es.js';
+// eslint-disable-next-line no-shadow -- Needed for TS
+import {expect} from 'chai';
+import {jml} from 'jamilih';
 import i18nizeElementForPlugin from
-  '../dist/i18nizeelement-jamilih-plugin.es6.js';
+  '../src/i18nizeelement-jamilih-plugin.js';
 
 describe('i18nizeElement Plugin', function () {
   beforeEach(function () {
+    /** @type {import('jamilih').JamilihOptions} */
     const options = {$plugins: [i18nizeElementForPlugin]};
     this.j = jml.bind(null, options);
   });

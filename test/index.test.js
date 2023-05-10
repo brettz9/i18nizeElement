@@ -1,4 +1,6 @@
-import i18nizeElement from '../dist/i18nizeelement.es6.js';
+// eslint-disable-next-line no-shadow -- Needed for TS
+import {expect} from 'chai';
+import i18nizeElement from '../src/index.js';
 
 describe('i18nizeElement (main)', () => {
   it('should throw', () => {
@@ -33,8 +35,11 @@ describe('i18nizeElement (main)', () => {
   });
   it('should throw if element or language is not present', () => {
     const div = document.createElement('div');
+    /**
+     * @typedef {any} BadArgument
+     */
     expect(() => {
-      i18nizeElement(null, {
+      i18nizeElement(/** @type {BadArgument} */ (null), {
         language: 'en'
       });
     }).to.throw();
@@ -44,18 +49,18 @@ describe('i18nizeElement (main)', () => {
   });
   describe('Top to bottom', () => {
     /*
-        // Todo: Waiting on: https://github.com/shadiabuhilal/rtl-detect/issues/2
-        it(
-          'should set `style.writingMode` for top-to-bottom languages/scripts',
-          () => {
-              const div = document.createElement('div');
-              i18nizeElement(div, {
-                  language: 'mn-Mong'
-              });
-              expect(div.style.writingMode).equal('vertical-lr');
-          }
-        );
-        */
+    // Is this consistently ttb?
+    it(
+      'should set `style.writingMode` for top-to-bottom languages/scripts',
+      () => {
+        const div = document.createElement('div');
+        i18nizeElement(div, {
+          language: 'mn-Mong'
+        });
+        expect(div.style.writingMode).equal('vertical-lr');
+      }
+    );
+    */
     it('should not set `style.writingMode` for rtl languages/scripts', () => {
       const div = document.createElement('div');
       i18nizeElement(div, {

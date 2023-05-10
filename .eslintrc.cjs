@@ -16,10 +16,9 @@ module.exports = {
   },
   overrides: [
     {
-      files: '.eslintrc.js',
+      files: '.eslintrc.cjs',
       extends: ['plugin:node/recommended-script'],
       rules: {
-        'import/no-commonjs': 0
       }
     },
     {

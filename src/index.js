@@ -1,7 +1,16 @@
 import 'intl-locale-textinfo-polyfill/lib/polyfill.js';
 
-// https://github.com/shadiabuhilal/rtl-detect/issues/3
 // e.g., `i18nizeElement(document.title, {language: 'ar-AR'});`
+
+/**
+ * @param {HTMLElement} element
+ * @param {{
+ *   language?: string,
+ *   avoidLangIfSet?: boolean,
+ *   avoidDirIfSet?: boolean,
+ *   avoidLTRByDefault?: boolean
+ * }} cfg
+ */
 const i18nizeElement = (element, {
   language,
   // These avoid setting if found to be already set with the same value
@@ -23,7 +32,9 @@ const i18nizeElement = (element, {
   //   3. The closest ancestor with `lang` has a different language from
   //       the supplied
   if (avoidLangIfSet) {
-    presetLangElement = element.closest('[lang]');
+    presetLangElement = /** @type {HTMLElement} */ (
+      element.closest('[lang]')
+    );
   }
   if (!presetLangElement || presetLangElement.lang !== language) {
     element.lang = language;
@@ -38,15 +49,25 @@ const i18nizeElement = (element, {
   //        direction or the user isn't avoiding (the default) LTR)
   //    3. The closest ancestor with `dir` has a different `dir` from the
   //        direction of the supplied language
-  const {direction: dir} = new Intl.Locale(language).textInfo;
+  const {direction: dir} =
+    /**
+     * @type {Intl.Locale & {
+     *   textInfo: {direction: "ltr"|"rtl"|"ttb"}
+     * }}
+     */ (
+      new Intl.Locale(language)
+    ).textInfo;
 
+  /** @type {HTMLElement|undefined} */
   let presetDirElement;
   if (avoidDirIfSet ||
     // If avoiding the default LTR except when different (even if not
     //   avoiding an (RTL) already-set dir), we need to know if different
     (avoidLTRByDefault && dir === 'ltr')
   ) {
-    presetDirElement = element.closest('[dir]');
+    presetDirElement = /** @type {HTMLElement} */ (
+      element.closest('[dir]')
+    );
   }
   if (
     // If the closest ancestor with `dir` is different, we need to
@@ -65,8 +86,8 @@ const i18nizeElement = (element, {
   ) {
     element.dir = dir;
 
-    /* istanbul ignore next */
-    if (dir === 'ttb') { // Assumes https://github.com/shadiabuhilal/rtl-detect/issues/2
+    /* c8 ignore next 3 */
+    if (dir === 'ttb') {
       element.style.writingMode = 'vertical-lr';
     }
   }

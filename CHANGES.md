@@ -4,6 +4,7 @@
 
 BREAKING CHANGE: Requires Node 16
 
+- refactor: added types
 - refactor: switch to `intl-locale-textinfo-polyfill`; use ESM
 - chore: update devDeps.
 
