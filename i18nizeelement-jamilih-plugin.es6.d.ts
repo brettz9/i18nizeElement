@@ -1,1 +1,1 @@
-export {default} from './dist/i18nizeelement-jamilih-plugin.js';
+export {default} from './i18nizeelement-jamilih-plugin.js';
