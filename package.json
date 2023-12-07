@@ -1,6 +1,6 @@
 {
   "name": "i18nizeelement",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": "Brett Zamir",
   "contributors": [],
   "license": "MIT",
@@ -31,10 +31,11 @@
     "rtl"
   ],
   "scripts": {
+    "copy": "cp i18nizeelement-jamilih-plugin.es6.d.ts dist/i18nizeelement-jamilih-plugin.es6.d.ts",
     "lint": "npm run eslint",
     "eslint": "eslint --ext=js,md,html .",
     "tsc": "tsc",
-    "build": "npm run rollup && tsc -p tsconfig-prod.json",
+    "build": "npm run rollup && npm run copy && tsc -p tsconfig-prod.json",
     "rollup": "rollup -c rollup.config.umd.js && rollup -c rollup.config.es6.js",
     "start": "npm run test:watch",
     "mocha": "_mocha --require chai/register-expect.js --require test/bootstrap/node.js test/*.js --exit",

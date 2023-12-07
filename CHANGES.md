@@ -1,5 +1,9 @@
 # CHANGES for i18nizeelement
 
+## 0.5.1
+
+- fix: for importing of TS `node_modules` path, provide re-export that can be found
+
 ## 0.5.0
 
 BREAKING CHANGE: Requires Node 16
