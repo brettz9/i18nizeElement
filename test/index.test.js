@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-shadow -- Needed for TS
+/* eslint-disable sonarjs/test-check-exception -- Ok */
 import {expect} from 'chai';
 import i18nizeElement from '../src/index.js';
 

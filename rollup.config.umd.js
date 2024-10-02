@@ -10,5 +10,4 @@ configPlugin.output.format = 'umd';
 configPlugin.output.file = 'dist/i18nizeelement-jamilih-plugin.umd.js';
 configPlugin.output.name = 'i18nizeElementJamilihPlugin';
 
-// eslint-disable-next-line import/no-anonymous-default-export -- Rollup config
 export default [configIndex, configPlugin];

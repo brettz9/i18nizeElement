@@ -1,5 +1,10 @@
 # CHANGES for i18nizeelement
 
+## 0.6.0
+
+- fix: add `intl-locale-textinfo-polyfill` as dep.
+- chore: update devDeps and lint; switch to pnpm
+
 ## 0.5.2
 
 - fix: for importing of TS `node_modules` path, provide re-export that can be found

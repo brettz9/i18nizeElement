@@ -9,6 +9,7 @@
     "emitDeclarationOnly": true,
     "declaration": true,
     "declarationMap": true,
+    "skipLibCheck": true,
     "strict": true,
     "target": "es6",
     "outDir": "dist",

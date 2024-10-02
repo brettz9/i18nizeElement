@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-shadow -- Needed for TS
 import {expect} from 'chai';
 import {jml} from 'jamilih';
 import i18nizeElementForPlugin from
