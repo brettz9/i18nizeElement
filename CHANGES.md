@@ -1,5 +1,9 @@
 # CHANGES for i18nizeelement
 
+## ?
+
+- chore: update devDeps.
+
 ## 0.6.0
 
 - fix: add `intl-locale-textinfo-polyfill` as dep.

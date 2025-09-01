@@ -11,9 +11,9 @@ export default [
   {
     files: ['*.md/*.js'],
     rules: {
-      // 'import/no-unresolved': ['error', {
-      //   ignore: ['i18nizeelement']
-      // }]
+      'import/no-unresolved': ['error', {
+        ignore: ['i18nizeelement']
+      }]
     }
   },
   {
