@@ -35,10 +35,12 @@ describe('i18nizeElement (main)', () => {
   });
   it('should throw if element or language is not present', () => {
     const div = document.createElement('div');
+    /* eslint-disable jsdoc/reject-any-type -- Deliberately bad */
     /**
      * @typedef {any} BadArgument
      */
     expect(() => {
+      /* eslint-enable jsdoc/reject-any-type -- Deliberately bad */
       i18nizeElement(/** @type {BadArgument} */ (null), {
         language: 'en'
       });

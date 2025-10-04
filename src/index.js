@@ -1,15 +1,19 @@
 import 'intl-locale-textinfo-polyfill/lib/polyfill.js';
 
-// e.g., `i18nizeElement(document.title, {language: 'ar-AR'});`
-
 /**
- * @param {HTMLElement} element
- * @param {{
+ * @typedef {{
  *   language?: string,
  *   avoidLangIfSet?: boolean,
  *   avoidDirIfSet?: boolean,
  *   avoidLTRByDefault?: boolean
- * }} cfg
+ * }} I18nizeElementOptions
+ */
+
+// e.g., `i18nizeElement(document.title, {language: 'ar-AR'});`
+
+/**
+ * @param {HTMLElement} element
+ * @param {I18nizeElementOptions} cfg
  */
 const i18nizeElement = (element, {
   language,
@@ -52,11 +56,11 @@ const i18nizeElement = (element, {
   const {direction: dir} =
     /**
      * @type {Intl.Locale & {
-     *   textInfo: {direction: "ltr"|"rtl"|"ttb"}
+     *   getTextInfo: () => {direction: "ltr"|"rtl"|"ttb"}
      * }}
      */ (
       new Intl.Locale(language)
-    ).textInfo;
+    ).getTextInfo();
 
   /** @type {HTMLElement|undefined} */
   let presetDirElement;

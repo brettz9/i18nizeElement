@@ -23,9 +23,7 @@ const plugin = {
     i18nizeElement(/** @type {HTMLElement} */ (element), {
       ...(
         /**
-         * @type {{
-         *   [key: string]: any;
-         * }}
+         * @type {import('./index.js').I18nizeElementOptions}
          */
         (options)
       )

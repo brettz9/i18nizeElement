@@ -1,8 +1,8 @@
 # CHANGES for i18nizeelement
 
-## ?
+## 0.7.0
 
-- chore: update devDeps.
+- chore: update intl-locale-textinfo-polyfill and devDeps.
 
 ## 0.6.0
 
